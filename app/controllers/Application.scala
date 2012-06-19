@@ -9,10 +9,10 @@ import java.net.URLEncoder
 
 object Application extends Controller {
 
-  val jiraQuery = "project = %s AND component = plan ORDER BY plannedStart"
+  val jiraQuery = "project = %s AND plannedStart is not EMPTY ORDER BY plannedStart"
 
   def index = Action {
-    Redirect(routes.Application.gantt("UPDUSERREFACTOR"))
+    Redirect(routes.Application.gantt("SPDSESSIONAUTH"))
   }
 
   def gantt(projectId: String) = Action {
